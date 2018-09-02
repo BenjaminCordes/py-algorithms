@@ -18,35 +18,47 @@ Use the test cases below to guide you!"""
 class Classy(object):
     def __init__(self):
         self.items = []
+        
+    def addItem(self, item):
+        self.items = [item] + self.items
+        
+    def getClassiness(self):
+        rating = 0
+        classy_ratings = {"tophat" : 2, "bowtie" : 4, "monocle" : 5}
+        for item in self.items:
+        	if item in classy_ratings:
+        		rating += classy_ratings[item]
+        return rating
+    
+    
+
 
 # Test cases
 me = Classy()
 
 
 
-def getClassiness(dude):
-	rating = 0;
-    classy_ratings = ["tophat" : 2, "bowtie" = 4, "monocle" = 5]
-    for item in dude.items:
-    	if item in classy_ratings:
-    		rating += classy_ratings[item]
-    return rating
+
+
     
 
 
-# Should be 0
-print me.getClassiness()
+    
+if False:
 
-me.addItem("tophat")
-# Should be 2
-print me.getClassiness()
+	# Should be 0
+	print(me.getClassiness())
 
-me.addItem("bowtie")
-me.addItem("jacket")
-me.addItem("monocle")
-# Should be 11
-print me.getClassiness()
+	me.addItem("tophat")
+	# Should be 2
+	print(me.getClassiness())
 
-me.addItem("bowtie")
-# Should be 15
-print me.getClassiness()
+	me.addItem("bowtie")
+	me.addItem("jacket")
+	me.addItem("monocle")
+	# Should be 11
+	print(me.getClassiness())
+
+	me.addItem("bowtie")
+	# Should be 15
+	print(me.getClassiness())
